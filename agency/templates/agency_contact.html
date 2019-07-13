@@ -49,9 +49,9 @@
                     <div class="container" >
                         <td>
                             <p>Agency Address* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                <a href="{% url 'agency_contact' %}">
+                                <!--<a href="{% url 'agency_contact' %}">
                                     <button type="button" class="btn btn-default" value="">Add</button>
-                                </a>
+                                </a>-->
                             </p>
                                 <input type="text" name="agency_company_address" class="form-control" placeholder="Agency address"
                                        style="width:235px;" value="{{ value.agency_company_name }}">
@@ -64,6 +64,13 @@
                     <br><br><br>
                 </form>
             </div>
+            <div class="container">
+                {% for value in values %}
+                    {% if value.agency_company_address is not None %}
+                        <p> {{ value.agency_company_address }}</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
         </div>
 
         <div class="tab-pane" id="2b">
@@ -73,9 +80,9 @@
                     <div class="container" >
                         <td>
                             <p>Social media address* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                <a href="{% url 'agency_contact' %}">
+                                <!--<a href="{% url 'agency_contact' %}">
                                     <button type="button" class="btn btn-default" value="">Add</button>
-                                </a>
+                                </a>-->
                             </p>
                                 <input type="text" name="agency_social_media" class="form-control" placeholder="Agency social media"
                                        style="width:235px;" value="{{ value.agency_social_media }}">
@@ -90,8 +97,9 @@
             </div>
             <div class="container">
                 {% for value in values %}
-                <p> {{ value.agency_company_address }}</p>
-                <a href="{{ value.agency_social_media }}">{{ value.agency_social_media }}</a>
+                {% if value.agency_social_media is not None %}
+                    <p><a href="{{ value.agency_social_media }}">{{ value.agency_social_media }}</a></p>
+                {% endif %}
                 {% endfor %}
             </div>
         </div>

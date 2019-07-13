@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c53cf434-cdcd-4538-967f-0e832f561b3a" name="Default Changelist" comment="" />
+    <list default="true" id="c53cf434-cdcd-4538-967f-0e832f561b3a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agency/templates/agency_contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/agency/templates/agency_contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agency/templates/agency_contact_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/agency/templates/agency_contact_post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agency/templates/agency_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/agency/templates/agency_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agency/templates/agency_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/agency/templates/agency_post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agency/templates/agency_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-873">
-              <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+            <state relative-caret-position="353">
+              <caret line="95" column="14" selection-start-line="95" selection-start-column="14" selection-end-line="95" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -31,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agency/templates/agency_contact_post.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+            <state relative-caret-position="262">
+              <caret line="100" column="52" selection-start-line="100" selection-start-column="52" selection-end-line="100" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -40,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agency/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="66" column="51" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="51" />
+            <state relative-caret-position="202">
+              <caret line="68" column="31" lean-forward="true" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -49,8 +57,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agency/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+            <state relative-caret-position="225">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -58,8 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/agency/templates/agency_post.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1380">
-              <caret line="92" column="14" lean-forward="true" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
+            <state relative-caret-position="232">
+              <caret line="86" column="47" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -67,8 +75,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/agency/templates/agency_contact.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1470">
-              <caret line="98" column="38" lean-forward="true" selection-start-line="98" selection-start-column="38" selection-end-line="98" selection-end-column="38" />
+            <state relative-caret-position="285">
+              <caret line="85" column="32" lean-forward="true" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#td#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -120,7 +128,11 @@
     <findStrings>
       <find>logout</find>
       <find>manage</find>
+      <find>add</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -142,7 +154,6 @@
         <option value="$PROJECT_DIR$/templates/base2.html" />
         <option value="$PROJECT_DIR$/requestBrief/templates/popup.html" />
         <option value="$PROJECT_DIR$/reg_group/views/client.py" />
-        <option value="$PROJECT_DIR$/agency/templates/agency_form.html" />
         <option value="$PROJECT_DIR$/templates/agency_profile.html" />
         <option value="$PROJECT_DIR$/event/models.py" />
         <option value="$PROJECT_DIR$/event/urls.py" />
@@ -150,7 +161,6 @@
         <option value="$PROJECT_DIR$/event/templates/event/index.html" />
         <option value="$PROJECT_DIR$/event/admin.py" />
         <option value="$PROJECT_DIR$/agency/templates/agency_preference_success.html" />
-        <option value="$PROJECT_DIR$/agency/templates/agency_contact_post.html" />
         <option value="$PROJECT_DIR$/agency/templates/agency_preference.html" />
         <option value="$PROJECT_DIR$/agency/forms.py" />
         <option value="$PROJECT_DIR$/reg_group/views/reg_group.py" />
@@ -167,10 +177,12 @@
         <option value="$PROJECT_DIR$/feedback/views.py" />
         <option value="$PROJECT_DIR$/feedback/templates/feedback_form.html" />
         <option value="$PROJECT_DIR$/feedback/templates/thanks.html" />
-        <option value="$PROJECT_DIR$/agency/templates/agency_post.html" />
-        <option value="$PROJECT_DIR$/agency/templates/agency_contact.html" />
         <option value="$PROJECT_DIR$/agency/urls.py" />
+        <option value="$PROJECT_DIR$/agency/templates/agency_post.html" />
+        <option value="$PROJECT_DIR$/agency/templates/agency_form.html" />
         <option value="$PROJECT_DIR$/agency/views.py" />
+        <option value="$PROJECT_DIR$/agency/templates/agency_contact_post.html" />
+        <option value="$PROJECT_DIR$/agency/templates/agency_contact.html" />
       </list>
     </option>
   </component>
@@ -180,6 +192,7 @@
     <option name="width" value="650" />
     <option name="height" value="743" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -233,6 +246,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../event_management_with_django" />
   </component>
   <component name="RunDashboard">
@@ -269,7 +283,7 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.3133117" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.17100978" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -652,13 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agency/templates/agency_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-873">
-          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/agency/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -666,38 +673,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/agency/templates/agency_contact_post.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/agency/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/agency/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="66" column="51" selection-start-line="66" selection-start-column="51" selection-end-line="66" selection-end-column="51" />
+        <state relative-caret-position="225">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/agency/templates/agency_post.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="92" column="14" lean-forward="true" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="14" />
+        <state relative-caret-position="232">
+          <caret line="86" column="47" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agency/templates/agency_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="95" column="14" selection-start-line="95" selection-start-column="14" selection-end-line="95" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agency/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="68" column="31" lean-forward="true" selection-start-line="68" selection-start-column="31" selection-end-line="68" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/agency/templates/agency_contact_post.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="100" column="52" selection-start-line="100" selection-start-column="52" selection-end-line="100" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/agency/templates/agency_contact.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1470">
-          <caret line="98" column="38" lean-forward="true" selection-start-line="98" selection-start-column="38" selection-end-line="98" selection-end-column="38" />
+        <state relative-caret-position="285">
+          <caret line="85" column="32" lean-forward="true" selection-start-line="85" selection-start-column="32" selection-end-line="85" selection-end-column="32" />
           <folding>
             <element signature="n#style#0;n#input#0;n#td#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
