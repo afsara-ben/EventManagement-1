@@ -1,0 +1,88 @@
+{% extends 'event/eventAdminBase.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<p>My list of events</p>
+{% if event_list %}
+
+
+{% for events in event_list %}
+
+<div id="accordion">
+
+
+    <div class="card">
+
+        <div class="card-header" id="heading{{ events.id }}">
+            <h5 class="mb-0">
+
+                <button class="btn btn-outline-info" data-toggle="collapse"
+                        data-target="#collapse{{ events.id }}" aria-expanded="false"
+                        aria-controls="collapseOne"
+                        style="height:50px;width:400px">
+                    Event Name :{{ events.event_name }}
+                </button>
+                <form action="{% url 'event:event-delete' events.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-default btn-sm">Delete</button>
+                </form>
+                <form action="{% url 'event:event-update' events.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-default btn-sm">Update</button>
+                </form>
+
+            </h5>
+        </div>
+
+
+        <div id="collapse{{ events.id }}" class="collapse " aria-labelledby="heading{{ events.id }}"
+             data-parent="#accordion">
+            <div class="card-body">
+
+                <ul>
+
+
+                    <p> Event Name :{{ events.event_name }}</p>
+                    <p> Client : {{ events.event_client }}</p>
+
+
+                    <p> Venue: {{ events.event_venue }}</p>
+                    <p> Type: {{ events.event_type }} </p>
+
+                    <p> Event Budget :{{ events.event_budget }}</p>
+                    <p> Number of guests: {{ events.event_guest_number }}</p>
+                    <p> Event Date: {{ events.event_date }} </p>
+
+                    <p> Event Time :{{ events.event_time }}</p>
+                    <p> Is it being arranged remotely? : {{ events.event_remote_arrange }}</p>
+                    <p> Event size : {{ events.event_size }} </p>
+
+                    <p> Event description :{{ events.event_description }}</p>
+
+                    <p> Username :{{ events.event_username }}</p>
+                    <p> Stuffs : {{ events.stuff }}</p>
+
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+{% endfor %}
+
+
+{% else %}
+<h1>No event entries found on the database.</h1>
+
+
+{% endif %}
+
+
+{% endblock %}

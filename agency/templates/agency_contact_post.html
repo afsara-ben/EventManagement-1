@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>My Blog</title>
+    </head>
+    <body>
+        {% for value in values %}
+                <p> {{ value.agency_company_address }}</p>
+                <a href="{{ value.agency_social_media }}">{{ value.agency_social_media }}</a>
+        {% endfor %}
+    </body>
+</html>
