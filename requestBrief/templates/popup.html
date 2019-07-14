@@ -55,9 +55,9 @@
 <!--                        <div class="modal-content">-->
                             <div class="modal-header">
                                 <h4 class="modal-title"><font color="black">Your Request 1</font></h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
-                                </button>
+                                </button>-->
                             </div>
 
                             <div class="modal-body">
@@ -125,7 +125,7 @@
 <!--                        <div class="container" id="myModal2">-->
                             <div class="modal-header">
                                 <h4 class="modal-title"><font color="black">Your Request 2</font></h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+<!--                                <button type="button" class="close" data-dismiss="modal">&times;</button>-->
 
                             </div>
                             <div class="modal-body">
@@ -187,7 +187,7 @@
 
                         <div class="modal-header">
                                 <h4 class="modal-title"><font color="black">Your Request 3</font></h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+<!--                                <button type="button" class="close" data-dismiss="modal">&times;</button>-->
 
                         </div>
                         <div class="modal-body">
@@ -228,7 +228,7 @@
 <!--                        <div class="modal-content">-->
                             <div class="modal-header">
                                 <h4 class="modal-title"><font color="black">Your Request 4</font></h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+<!--                                <button type="button" class="close" data-dismiss="modal">&times;</button>-->
 
                             </div>
                             <div class="modal-body">
@@ -271,7 +271,7 @@
 <!--                        <div class="modal-content">-->
                             <div class="modal-header">
                                 <h4 class="modal-title"><font color="black">Your Request 5</font></h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+<!--                                <button type="button" class="close" data-dismiss="modal">&times;</button>-->
 
                             </div>
                             <div class="modal-body">
@@ -334,7 +334,7 @@
 <!--                        <div class="modal-content">-->
                             <div class="modal-header">
                                 <h4 class="modal-title"><font color="black">Your Request 6</font></h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+<!--                                <button type="button" class="close" data-dismiss="modal">&times;</button>-->
 
                             </div>
                             <div class="modal-body">
@@ -400,7 +400,7 @@
 <!--                        <div class="modal-content">-->
                             <div class="modal-header">
                                 <h4 class="modal-title"><font color="black">Your Request 7</font></h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+<!--                                <button type="button" class="close" data-dismiss="modal">&times;</button>-->
 
                             </div>
                             <div class="modal-body">
@@ -459,7 +459,7 @@
 <!--                        <div class="modal-content">-->
                             <div class="modal-header">
                                 <h4 class="modal-title"><font color="black">Your Request 8</font></h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+<!--                                <button type="button" class="close" data-dismiss="modal">&times;</button>-->
 
                             </div>
                             <div class="modal-body">
@@ -488,6 +488,23 @@
                                 <div class="checkbox">
                                     <label><input type="checkbox" name="otherservice" value="No"><font
                                             color="black">No</font></label>
+                                </div>
+                            </div>
+
+                            <div class="modal-header">
+                                <h4 class="modal-title"><font color="black">Your Request 9</font></h4>
+<!--                                <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+
+                            </div>
+                            <div class="modal-body">
+                                <p><font color="black">Do you want to work remotely with the agency ?</font></p>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="client_remote_work"
+                                                  value="no"><font color="black">No, I want to work physically with the agency.</font></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" name="client_remote_work"
+                                                  value="yes"><font color="black">Yes, I can work with agency remotely.</font></label>
                                 </div>
                             </div>
 
@@ -565,6 +582,11 @@
 
                     <label>{{ value.otherservice }}</label>
                 </a>
+                <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">
+                    <p>Do you want to work remotely with the agency ?</p>
+
+                    <label>{{ value.client_remote_work }}</label>
+                </a>
 
             </div>
         </div>
@@ -572,7 +594,12 @@
 
         <div class="tab-pane" id="3b">
             <h3>will show matched results .........</h3>
-            {{ requestBrief_event_request.service }}
+<!--            <label>{{ value.client_remote_work }}</label>-->
+            {% for resultlist in result_list %}
+            <label><a class="btn-link" href="agency/?sku={{ resultlist.agency_company_name }}">{{ resultlist.agency_company_name }}</a></label><br>
+            <p>{{ resultlist.agency_company_address }}</p>
+            <p>{{ count }}</p>
+            {% endfor %}
         </div>
 
         <div class="tab-pane" id="4b">

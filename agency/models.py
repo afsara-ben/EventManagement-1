@@ -36,6 +36,8 @@ class Agency(models.Model):
     agency_logo = models.ImageField(upload_to='images/', default="", blank=True, null=True)
     agency_language = models.CharField(max_length=255, default="", blank=True, null=True)
     agency_contact_number = models.IntegerField(default="", blank=True, null=True)
+    agency_studio_size = models.CharField(max_length=255, default=None, blank=True, null=True)
+    date_added = models.DateTimeField(default=datetime.now, blank=True)
 
     objects = AgencyManager()
 
@@ -102,8 +104,7 @@ class AgencyBrief(models.Model):
     agency_specialty = models.CharField(max_length=255, default="", blank=True, null=True)
     agency_interest = models.CharField(max_length=255, default="", blank=True, null=True)
     agency_remote_work = models.CharField(max_length=255, default="", blank=True, null=True)
-    agency_budget_upper = models.BigIntegerField(default=None, blank=True, null=True)
-    agency_budget_lower = models.BigIntegerField(default=None, blank=True, null=True)
+    agency_event_budget = models.CharField(max_length=255, default="", blank=True, null=True)
     agent_username = models.CharField(max_length=255, default="")
     date_added = models.DateTimeField(default=datetime.now, blank=True)
 

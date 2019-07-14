@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+{% extends 'base2.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sss</title>
+</head>
+
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+{% block content %}
+<h1>Agency profile</h1>
+<h2>{{ sku }}</h2>
+<h2>{{ message }}</h2>
+<h3>{{ agency_detail.agency_company_website }}</h3>
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/jquery.sticky.js' %}"></script>
+<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+<script src="{% static 'js/aos.js' %}"></script>
+
+<script src="{% static 'js/main.js' %}"></script>
+
+
+{% endblock %}
+
+</body>
+</html>

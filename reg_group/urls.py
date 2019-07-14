@@ -20,5 +20,6 @@ urlpatterns = [
                              ], 'reg_group'), namespace='vendor')),
 
     path('agency/profile/', include('agency.urls')),
+    path('client/profile/', include('client.urls')),
     path('agency/image_upload/', include('imageapp.urls')),
 ]

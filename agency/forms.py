@@ -19,5 +19,6 @@ class AgencyInfoForm(forms.ModelForm):
 class AgencyBriefForm(forms.ModelForm):
     class Meta:
         model = AgencyBrief
-        fields = ('agency_specialty', 'agency_interest', 'agency_remote_work', )
+        fields = ('agency_specialty', 'agency_interest', 'agency_remote_work', 'agency_event_budget',
+                  'agency_company_name', )
 

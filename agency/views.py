@@ -46,6 +46,17 @@ def agency_view(request):
                 obj.agent_username = agency_registration_username
                 obj.agent_email = request.user.email
                 obj.save()
+                if obj.agency_employee_number <= 10:
+                    obj.agency_studio_size = "small studio"
+                elif obj.agency_employee_number <= 30:
+                    obj.agency_studio_size = "medium studio"
+                elif obj.agency_employee_number <= 100:
+                    obj.agency_studio_size = "big studio"
+                elif obj.agency_employee_number > 100:
+                    obj.agency_studio_size = "group"
+                else:
+                    obj.agency_studio_size = "i do not care"
+                obj.save()
                 return redirect('agency_success')
         else:
             form = AgencyForm(instance=value)
@@ -97,6 +108,17 @@ def edit_post(request):
             agency_registration_username = request.user.username  # jishatech
             obj.agent_username = agency_registration_username
             obj.agent_email = request.user.email
+            obj.save()
+            if obj.agency_employee_number <= 10:
+                obj.agency_studio_size = "small studio"
+            elif obj.agency_employee_number <= 30:
+                obj.agency_studio_size = "medium studio"
+            elif obj.agency_employee_number <= 100:
+                obj.agency_studio_size = "big studio"
+            elif obj.agency_employee_number > 100:
+                obj.agency_studio_size = "group"
+            else:
+                obj.agency_studio_size = "i do not care"
             obj.save()
             return redirect('agency_success')
     else:

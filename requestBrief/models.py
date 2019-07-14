@@ -15,4 +15,5 @@ class event_request(models.Model):
     client_name = models.CharField(max_length=255, default=None, blank=True, null=True)
     request_status = models.CharField(max_length=255, default=None, blank=True, null=True)
     agency_name = models.CharField(max_length=255, default=None, blank=True, null=True)
+    client_remote_work = models.CharField(max_length=255, default=None, blank=True, null=True)
 

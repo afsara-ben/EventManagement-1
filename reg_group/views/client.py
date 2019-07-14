@@ -28,7 +28,7 @@ class ClientSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('client:client_profile')
+        return redirect('client_profile')
 
 
 @method_decorator([login_required, client_required], name='dispatch')
@@ -36,7 +36,7 @@ class QuizListView(ListView):
     model = User_Info
     ordering = ('name',)
     context_object_name = 'quizzes'
-    template_name = 'popup.html'
+    template_name = 'client_profile.html'
 
     def get_queryset(self):
         queryset = 'hello world is good its client'
