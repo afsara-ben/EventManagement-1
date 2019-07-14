@@ -11,10 +11,51 @@
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 {% block content %}
-<h1>Agency profile</h1>
-<h2>{{ sku }}</h2>
-<h2>{{ message }}</h2>
+<h3>About <b>{{ agency_detail.agency_company_name }}</b></h3>
+<p>{{ agency_detail.agency_description }}</p>
+<h3>Locations:</h3>
+<!--
+{% for agencyinfoaddress in agency_info_address %}
+    <p>{{ agencyinfoaddress.agency_company_address }}</p>
+{% endfor %}
+-->
 <h3>{{ agency_detail.agency_company_website }}</h3>
+<div class="container">
+    <h3>{{ message }}</h3>
+    <table style="width:100%">
+        <tr>
+            <th>Service : Specialty</th>
+            <th>Service : Interest</th>
+            <th>Agency Size</th>
+            <th>Budget</th>
+            <th>Language</th>
+            <th>Location</th>
+        </tr>
+        <tr>
+            <td>{{ agency_brief_detail.agency_specialty }}</td>
+            <td>{{ agency_brief_detail.agency_interest }}</td>
+            <td>{{ agency_detail.agency_studio_size }}</td>
+            <td>{{ agency_brief_detail.agency_event_budget }}</td>
+            <td>{{ agency_detail.agency_language }}</td>
+            <td>{{ agency_info_detail.agency_company_address }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>{{ agency_detail.agency_employee_number }} employees</td>
+        </tr>
+    </table>
+</div>
+
+<div class="container">
+    <h3>Works</h3>
+
+</div>
+
+<div class="container">
+    <h3>Reviews</h3>
+
+</div>
 
 <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <script src="{% static 'js/jquery-ui.js' %}"></script>

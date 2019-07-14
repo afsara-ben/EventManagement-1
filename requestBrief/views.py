@@ -116,17 +116,35 @@ def match(request):
 
 
 def match_success(request):
+    value = event_request.objects.latest('date_added')
     if request.method == 'GET':
         sku = request.GET.get('sku')
         if not sku:
             return render(request, 'popup.html')
         else:
-            message = "hello"
+            message = "Agency criteria matched"
             agency_detail = Agency.objects.get(agency_company_name=sku)
+            agency_info_detail = Agency_Info.objects.filter(agency_company_name=sku).order_by('date_added')[0]
+           # agency_info_address = Agency_Info.objects.get(agency_company_name=sku)
+            agency_brief_detail = AgencyBrief.objects.filter(agency_company_name=sku).order_by('date_added')[0]
+            service_match = "Service criteria matched" if value.service.lower() in agency_brief_detail.agency_specialty.lower() or agency_brief_detail.agency_interest.lower() else ""
+            language_match = "Language criteria matched" if agency_detail.agency_language.lower() == value.language.lower() else ""
+            size_match = "Agency size criteria matched" if agency_detail.agency_studio_size.lower() == value.size.lower() else ""
+            location_match = "Agency location criteria matched" if value.location.lower() in agency_info_detail.agency_company_address.lower() else ""
+            budget_match = "Agency budget criteria method" if agency_brief_detail.agency_event_budget.lower() == value.range.lower() else ""
             context = {
                 'sku': sku,
                 'message': message,
                 'agency_detail': agency_detail,
+                'agency_info_detail': agency_info_detail,
+                'agency_brief_detail': agency_brief_detail,
+            #    'agency_info_address': agency_info_address,
+                'value': value,
+                'service_match': service_match,
+                'language_match': language_match,
+                'size_match': size_match,
+                'location_match': location_match,
+                'budget_match': budget_match,
             }
             return render(request, 'agency_match.html', context)
 
