@@ -595,16 +595,75 @@
         <div class="tab-pane" id="3b">
             <h3>will show matched results .........</h3>
 <!--            <label>{{ value.client_remote_work }}</label>-->
-            {% for resultlist in result_list %}
-            <label><a class="btn-link" href="agency/?sku={{ resultlist.agency_company_name }}">{{ resultlist.agency_company_name }}</a></label><br>
-            <p>{{ resultlist.agency_company_address }}</p>
-            <p>{{ count }}</p>
-            {% endfor %}
+            <table style="width:100%">
+              <tr>
+                <th>Agency Name</th>
+                <th>Match rate</th>
+                <th>Ratings</th>
+              </tr>
+              <tr>
+                  <td>
+                      {% for resultlist in result_list %}
+                    {% if resultlist.agency_company_address %}
+                    <label><a class="btn-link" href="agency/?sku={{ resultlist.agency_company_name }}">{{ resultlist.agency_company_name }}</a></label><br>
+                    <p>{{ resultlist.agency_company_address }}</p>
+                    <!--<p>{{ forloop.counter|add:"70" }}</p>-->
+                    <!--<p>{{ count.0.1|add:"-10" }}</p>-->
+                    {% endif %}
+                      {% endfor %}
+                  </td>
+                <td>
+                    {% for resultlist in result_list %}
+                    {% if resultlist.agency_company_address %}
+                        <!--<p>{{ forloop.counter|add:"70" }}</p>-->
+                    <p>{{ forloop.revcounter|add:"70" }}</p><br>
+                    <!--<p>{{ countlist }}</p>-->
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td></td>
+              </tr>
+            </table>
         </div>
 
         <div class="tab-pane" id="4b">
             <h3>Request History</h3>
-            <a href="{% url 'createBrief' %}">history</a>
+            <!--<a href="/client/history/">
+                <button type="button" class="btn btn-default" style="float: left;">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                    Show History
+                </button>-->
+            </a>
+            <table style="width:100%">
+              <tr>
+                <th>Accepted</th>
+                <th>Pending</th>
+                <th>Deleted</th>
+              </tr>
+              <tr>
+                <td>
+                    {% for post in posts %}
+                    {% if post.request_status == "accepted" %}
+                    <p>{{ post.service }}</p>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for post in posts %}
+                    {% if post.request_status == "pending" %}
+                    <p>{{ post.service }}</p>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for post in posts %}
+                    {% if post.request_status == "deleted" %}
+                    <p>{{ post.service }}</p>
+                    {% endif %}
+                    {% endfor %}
+                </td>
+              </tr>
+            </table>
         </div>
 
         <div class="tab-pane" id="5b">

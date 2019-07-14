@@ -1,13 +1,21 @@
 <!DOCTYPE html>
+{% extends 'base2.html' %}
 <html>
 <head>
     <title>Feedback Form</title>
 </head>
+{% block content %}
 <body>
 <form action="{% url 'feedback_form' %}" method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
+        <td>
+            <p>Client review:</p>
+            <input class="form-control" name="review" placeholder="Client review" style="width:235px;"
+                   type="text" value="">
+        </td>
+<!--    {{ form.as_p }}-->
     <input type="submit" />
 </form>
 </body>
+{% endblock %}
 </html>

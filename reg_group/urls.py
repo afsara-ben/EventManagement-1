@@ -2,6 +2,9 @@ from django.urls import include, path
 
 from .views import client, agency, reg_group, vendor
 from imageapp.views import image_view, success
+from django.conf import settings
+from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('', reg_group.home, name='home'),
@@ -23,3 +26,7 @@ urlpatterns = [
     path('client/profile/', include('client.urls')),
     path('agency/image_upload/', include('imageapp.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += staticfiles_urlpatterns()
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

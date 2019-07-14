@@ -1,12 +1,22 @@
 from django.db import models
 
 
+Rating_CHOICES = (
+    (1, 'Poor'),
+    (2, 'Average'),
+    (3, 'Good'),
+    (4, 'Very Good'),
+    (5, 'Excellent')
+)
+
+
 class Feedback(models.Model):
     customer_name = models.CharField(max_length=120, default=None, blank=True, null=True)
-    email = models.EmailField(max_length=255, default=None, blank=True, null=True)
-    details = models.TextField(default=None, blank=True, null=True)
-    happy = models.FloatField(default=None, blank=True, null=True)
+    agency_name = models.CharField(max_length=120, default=None, blank=True, null=True)
+    customer_email = models.EmailField(max_length=255, default=None, blank=True, null=True)
+    review = models.TextField(default=None, blank=True, null=True)
     date = models.DateField(auto_now_add=True)
+    is_favorite = models.IntegerField(choices=Rating_CHOICES, default=1, blank=True, null=True)
 
     def __str__(self):
         return self.customer_name

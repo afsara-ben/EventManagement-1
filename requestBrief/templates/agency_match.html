@@ -13,13 +13,25 @@
 {% block content %}
 <h3>About <b>{{ agency_detail.agency_company_name }}</b></h3>
 <p>{{ agency_detail.agency_description }}</p>
+<!--    <img class="rounded-circle account-img" width="200" height="200" src="/media/{{ posts.image_file }}" />-->
 <h3>Locations:</h3>
-<!--
 {% for agencyinfoaddress in agency_info_address %}
+{% if agencyinfoaddress.agency_company_address %}
     <p>{{ agencyinfoaddress.agency_company_address }}</p>
+{% endif %}
 {% endfor %}
--->
-<h3>{{ agency_detail.agency_company_website }}</h3>
+<h3>Company website :</h3>
+<!--<p>  {{ agency_detail.agency_company_website }}</p>-->
+<a href="{{ agency_detail.agency_company_website }}">{{ agency_detail.agency_company_website }}</a>
+<h3>Company Contact Info: </h3>
+<p>  {{ agency_detail.agency_contact_number }}</p>
+<h3>Social media:</h3>
+{% for agencyinfoaddress in agency_info_address %}
+{% if agencyinfoaddress.agency_social_media %}
+<!--    <p>{{ agencyinfoaddress.agency_social_media }}</p>-->
+    <a href="{{ agencyinfoaddress.agency_social_media }}">{{ agencyinfoaddress.agency_social_media }}</a>
+{% endif %}
+{% endfor %}
 <div class="container">
     <h3>{{ message }}</h3>
     <table style="width:100%">
@@ -56,21 +68,6 @@
     <h3>Reviews</h3>
 
 </div>
-
-<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-<script src="{% static 'js/jquery-ui.js' %}"></script>
-<script src="{% static 'js/popper.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/owl.carousel.min.js' %}"></script>
-<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-<script src="{% static 'js/jquery.sticky.js' %}"></script>
-<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
-<script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
-<script src="{% static 'js/aos.js' %}"></script>
-
-<script src="{% static 'js/main.js' %}"></script>
-
-
 {% endblock %}
 
 </body>

@@ -6,5 +6,5 @@ from .models import Feedback
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
-        fields = ('details', 'happy', )
+        fields = ('review', 'is_favorite', )
 

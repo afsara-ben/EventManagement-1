@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404, _get_queryset
 from .forms import AgencyForm, AgencyInfoForm, AgencyBriefForm
 from .models import Agency, Agency_Info, AgencyBrief
+from imageapp.models import Picture
 
 
 def preference_view(request):
@@ -34,7 +35,8 @@ def preference_success(request):
 def agency_view(request):
     try:
         value = Agency.objects.get(agent_username=request.user.username)
-        return render(request, 'agency_form.html', {'value': value}, )
+        logo = Picture.objects.filter(uploader=request.user.username, image_name="company_logo").order_by('date_added')[0]
+        return render(request, 'agency_form.html', {'value': value, 'logo': logo}, )
     except Agency.DoesNotExist:
         value = None
         if request.method == 'POST':
@@ -60,7 +62,7 @@ def agency_view(request):
                 return redirect('agency_success')
         else:
             form = AgencyForm(instance=value)
-        return render(request, 'agency_form.html', {'form': form, 'value': value}, )
+        return render(request, 'agency_form.html', {'form': form, 'value': value, 'logo': logo}, )
 
 
 def agency_contact(request):

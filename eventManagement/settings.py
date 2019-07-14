@@ -177,5 +177,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'yahoojisha'
 EMAIL_HOST_PASSWORD = 'Typewritter1.'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'

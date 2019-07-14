@@ -11,9 +11,6 @@ from django.views.generic import CreateView, ListView, TemplateView, UpdateView
 from ..decorators import client_required
 from ..forms import ClientSignUpForm
 from ..models import User, User_Info
-from django.core.mail import send_mail
-
-#send_mail(   'Subject here', 'Here is the message. Send. Done.',  'jsultanajisha@gmail.com', ['jsultanajisha@yahoo.com'],fail_silently=False,)
 
 
 class ClientSignUpView(CreateView):
@@ -28,7 +25,7 @@ class ClientSignUpView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('client_profile')
+        return redirect('client:client_profile')
 
 
 @method_decorator([login_required, client_required], name='dispatch')

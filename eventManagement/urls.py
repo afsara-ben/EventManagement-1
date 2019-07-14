@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from reg_group.views import client, agency, reg_group, vendor
 from requestBrief.views import popup, request_view
-from requestBrief.views import request_success, match, match_success
+from requestBrief.views import request_success, match, match_success, client_request_history
 from relation.views import AdSearchView
 from django.conf import settings
 from django.conf.urls.static import static
@@ -37,6 +37,7 @@ urlpatterns = [
     path('client/myrequest/', request_view, name='popup'),
     path('client/myBrief/', request_success, name='createBrief'),
     path('client/mymatch/', match, name='mymatch'),
+    path('client/history/', client_request_history, name='client_request_history'),
     path('client/mymatch/agency/', match_success, name='agency_match'),
     path('agency/search/', AdSearchView.as_view(), name='search'),
     path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),

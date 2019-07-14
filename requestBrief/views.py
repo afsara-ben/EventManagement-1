@@ -9,7 +9,10 @@ from django.contrib import messages
 from requestBrief.forms import requestForm
 from requestBrief.models import event_request
 from agency.models import AgencyBrief, Agency_Info, Agency
-
+from imageapp.models import Picture
+from imageapp.forms import ImageForm
+from imageapp.views import logo_success
+from django.core.mail import send_mail
 
 from django.contrib.auth.decorators import login_required
 
@@ -28,7 +31,7 @@ def request_view(request):
         obj.request_status = 'pending'
         print(service)
         obj.save()
-    #    return redirect('createBrief')
+        #    return redirect('createBrief')
         return redirect('mymatch')
 
     else:
@@ -50,7 +53,7 @@ def request_success(request):
         obj.client_name = request.user.username
         obj.request_status = 'pending'
         obj.save()
-    #    return redirect('createBrief')
+        #    return redirect('createBrief')
         return redirect('mymatch')
 
     value = event_request.objects.latest('date_added')
@@ -70,39 +73,35 @@ def home(request):
 
 
 def match(request):
-    count = 0
+    count = 70
     value = event_request.objects.latest('date_added')
     agency_brief_match = AgencyBrief.objects.filter((Q(agency_specialty__icontains=value.service) |
-                                             Q(agency_interest__icontains=value.service)) &
-                                             Q(agency_remote_work__icontains=value.client_remote_work) &
-                                             Q(agency_event_budget__icontains=value.range))
-
-    count = 40
+                                                     Q(agency_interest__icontains=value.service)) &
+                                                    Q(agency_remote_work__icontains=value.client_remote_work) &
+                                                    Q(agency_event_budget__icontains=value.range)).distinct()
 
     if value.client_remote_work is "no":
-        agency_info_match = Agency_Info.objects.filter(Q(agency_company_address__icontains=value.location))
-        count = 60
+        agency_info_match = Agency_Info.objects.filter(Q(agency_company_address__icontains=value.location)).distinct()
     else:
         agency_info_match = Agency_Info.objects.filter(Q(agency_company_address__icontains=value.location) |
-                                                       ~Q(agency_company_address__icontains=value.location))
-        count = 50
+                                                       ~Q(agency_company_address__icontains=value.location)).distinct()
 
     if value.size != "I do not care":
         agency_match = Agency.objects.filter(Q(agency_language__icontains=value.language) &
-                                             Q(agency_studio_size__icontains=value.size))
-        count = count + 20
+                                             Q(agency_studio_size__icontains=value.size)).distinct()
+
     else:
-        agency_match = Agency.objects.filter(Q(agency_language__icontains=value.language))
-        count = count + 10
+        agency_match = Agency.objects.filter(Q(agency_language__icontains=value.language)).distinct()
 
-    result_list = sorted(chain(agency_brief_match,
-                               agency_match,
-                               agency_info_match,
-                               ),
-                         key=lambda instance: instance.date_added)
+    result_list_list = sorted(chain(agency_brief_match,
+                                    agency_match,
+                                    agency_info_match,
+                                    ),
+                              key=lambda instance: instance.date_added)
+    result_list = list(set(result_list_list))
 
-    print(value.range)
-    sku = "jishacompany"
+    sku = result_list
+
     context = {
         'value': value,
         'result_list': result_list,
@@ -125,8 +124,9 @@ def match_success(request):
             message = "Agency criteria matched"
             agency_detail = Agency.objects.get(agency_company_name=sku)
             agency_info_detail = Agency_Info.objects.filter(agency_company_name=sku).order_by('date_added')[0]
-           # agency_info_address = Agency_Info.objects.get(agency_company_name=sku)
+            agency_info_address = Agency_Info.objects.filter(agency_company_name=sku)
             agency_brief_detail = AgencyBrief.objects.filter(agency_company_name=sku).order_by('date_added')[0]
+            posts = Picture.objects.filter(uploader=agency_detail.agent_username).order_by('date_added')
             service_match = "Service criteria matched" if value.service.lower() in agency_brief_detail.agency_specialty.lower() or agency_brief_detail.agency_interest.lower() else ""
             language_match = "Language criteria matched" if agency_detail.agency_language.lower() == value.language.lower() else ""
             size_match = "Agency size criteria matched" if agency_detail.agency_studio_size.lower() == value.size.lower() else ""
@@ -138,7 +138,8 @@ def match_success(request):
                 'agency_detail': agency_detail,
                 'agency_info_detail': agency_info_detail,
                 'agency_brief_detail': agency_brief_detail,
-            #    'agency_info_address': agency_info_address,
+                'agency_info_address': agency_info_address,
+                'posts': posts,
                 'value': value,
                 'service_match': service_match,
                 'language_match': language_match,
@@ -147,4 +148,16 @@ def match_success(request):
                 'budget_match': budget_match,
             }
             return render(request, 'agency_match.html', context)
+
+
+def client_request_history(request):
+    posts = event_request.objects.filter(client_name=request.user.username).all()
+
+    send_mail('Subject here', 'Here is the message. Send. Done.', 'jsultanajisha@gmail.com', ['jsultanajisha@gmail.com'], fail_silently=False, )
+    # for value in values:
+    #    print(value.service)
+    context = {
+        'posts': posts,
+    }
+    return render(request, 'popup.html', context, )
 
